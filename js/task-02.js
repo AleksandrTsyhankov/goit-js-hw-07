@@ -14,7 +14,7 @@ function creatingElements(ingredients) {
     const item = document.createElement("li");
     item.textContent = ingridient;
 
-    parentElement.appendChild(item)
+    parentElement.append(item)
   });
 }
 

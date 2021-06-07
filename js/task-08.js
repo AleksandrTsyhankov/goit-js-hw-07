@@ -8,13 +8,16 @@ const controls = {
 controls.controlCreate.addEventListener('click', onRenderElements);
 controls.controlDestroy.addEventListener('click', onDestroyElements);
 
+let sizeOfAddedItem = 30;
+
 function createBoxes(amount) {
-    for (let i = 1; i <= amount; i += 1) {
-        const borderColor = '#' + (Math.random().toString(16) + '000000').substring(2,8).toUpperCase();
+    for (let i = 0; i < amount; i += 1) {
         const item = document.createElement("div");
+        const borderColor = '#' + (Math.random().toString(16) + '000000').substring(2,8).toUpperCase();
 
-        item.setAttribute("style", `display: block; border: 4px solid ${borderColor}; width: 50px; height: 50px; margin: 20px`);
-
+        item.setAttribute("style", `display: block; border: 4px solid ${borderColor}; width: ${sizeOfAddedItem}px; height: ${sizeOfAddedItem}px; margin: 20px`);
+        sizeOfAddedItem += 10
+        
         controls.boxes.appendChild(item);
     }
 }
@@ -24,5 +27,10 @@ function onRenderElements(event) {
 }
 
 function onDestroyElements() {
+    sizeOfAddedItem = 30;
     return controls.boxes.innerHTML = '';
+
 }
+
+
+

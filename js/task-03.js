@@ -13,16 +13,20 @@ const images = [
   },
 ];
 
-
-function insertImages(images) {
+function createImages(images) {
   const parentElement = document.querySelector("#gallery");
+  const createdImages = [];
 
+  
   images.forEach(image => {
-    parentElement.insertAdjacentHTML('afterbegin', `<li><img width = 1260px height = 750px src="${image.url}" alt="${image.alt}"></img></li>`)
+    createdImages.push(`<li><img width = 1260px height = 750px src="${image.url}" alt="${image.alt}"></img></li>`)
   });
   
   parentElement.style.display       = "flex";
   parentElement.style.flexDirection = "column";
+
+  const imagesToAdd = createdImages.join('')
+  parentElement.insertAdjacentHTML('afterbegin', imagesToAdd)
 }
 
-insertImages(images)
+createImages(images)
