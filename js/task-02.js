@@ -8,14 +8,17 @@ const ingredients = [
 ];
 
 function creatingElements(ingredients) {
- const parentElement = document.querySelector("#ingredients");
+  const parentElement = document.querySelector("#ingredients");
+  const allItems = [];
 
   ingredients.forEach(ingridient => {
     const item = document.createElement("li");
     item.textContent = ingridient;
 
-    parentElement.append(item)
+    allItems.push(item);
   });
+
+  parentElement.append(...allItems)
 }
 
 creatingElements(ingredients)
